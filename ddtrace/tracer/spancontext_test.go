@@ -12,8 +12,8 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/log"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
+	"github.com/daangn/dd-trace-go.v1/internal/log"
 )
 
 func setupteardown(start, max int) func() {

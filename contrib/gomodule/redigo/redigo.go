@@ -17,9 +17,9 @@ import (
 	"time"
 
 	redis "github.com/gomodule/redigo/redis"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	"github.com/daangn/dd-trace-go.v1/ddtrace"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 // Conn is an implementation of the redis.Conn interface that supports tracing

@@ -17,9 +17,9 @@ import (
 	"sync"
 	"time"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/log"
+	"github.com/daangn/dd-trace-go.v1/ddtrace"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
+	"github.com/daangn/dd-trace-go.v1/internal/log"
 
 	"golang.org/x/time/rate"
 )

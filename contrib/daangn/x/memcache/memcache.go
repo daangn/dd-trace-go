@@ -15,7 +15,9 @@ import (
 	"context"
 	"math"
 
-	"github.com/bradfitz/gomemcache/memcache"
+	gomemcache "github.com/daangn/gomemcache/memcache"
+	"github.com/daangn/x/memcache"
+
 	"github.com/daangn/dd-trace-go.v1/ddtrace"
 	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
 	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
@@ -45,16 +47,8 @@ type Client struct {
 
 // WithContext creates a copy of the Client with the given context.
 func (c *Client) WithContext(ctx context.Context) *Client {
-	// the existing memcache client doesn't support context, but may in the
-	// future, so we do a runtime check to detect this
-	mc := c.Client
-	if wc, ok := (interface{})(c.Client).(interface {
-		WithContext(context.Context) *memcache.Client
-	}); ok {
-		mc = wc.WithContext(ctx)
-	}
 	return &Client{
-		Client:  mc,
+		Client:  c.Client,
 		cfg:     c.cfg,
 		context: ctx,
 	}
@@ -77,17 +71,17 @@ func (c *Client) startSpan(resourceName string) ddtrace.Span {
 // wrapped methods:
 
 // Add invokes and traces Client.Add.
-func (c *Client) Add(item *memcache.Item) error {
+func (c *Client) Add(item *gomemcache.Item) error {
 	span := c.startSpan("Add")
-	err := c.Client.Add(item)
+	err := c.Client.Add(c.context, item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // CompareAndSwap invokes and traces Client.CompareAndSwap.
-func (c *Client) CompareAndSwap(item *memcache.Item) error {
+func (c *Client) CompareAndSwap(item *gomemcache.Item) error {
 	span := c.startSpan("CompareAndSwap")
-	err := c.Client.CompareAndSwap(item)
+	err := c.Client.CompareAndSwap(c.context, item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
@@ -95,7 +89,7 @@ func (c *Client) CompareAndSwap(item *memcache.Item) error {
 // Decrement invokes and traces Client.Decrement.
 func (c *Client) Decrement(key string, delta uint64) (newValue uint64, err error) {
 	span := c.startSpan("Decrement")
-	newValue, err = c.Client.Decrement(key, delta)
+	newValue, err = c.Client.Decrement(c.context, key, delta)
 	span.Finish(tracer.WithError(err))
 	return newValue, err
 }
@@ -103,7 +97,7 @@ func (c *Client) Decrement(key string, delta uint64) (newValue uint64, err error
 // Delete invokes and traces Client.Delete.
 func (c *Client) Delete(key string) error {
 	span := c.startSpan("Delete")
-	err := c.Client.Delete(key)
+	err := c.Client.Delete(c.context, key)
 	span.Finish(tracer.WithError(err))
 	return err
 }
@@ -111,7 +105,7 @@ func (c *Client) Delete(key string) error {
 // DeleteAll invokes and traces Client.DeleteAll.
 func (c *Client) DeleteAll() error {
 	span := c.startSpan("DeleteAll")
-	err := c.Client.DeleteAll()
+	err := c.Client.DeleteAll(c.context)
 	span.Finish(tracer.WithError(err))
 	return err
 }
@@ -125,17 +119,17 @@ func (c *Client) FlushAll() error {
 }
 
 // Get invokes and traces Client.Get.
-func (c *Client) Get(key string) (item *memcache.Item, err error) {
+func (c *Client) Get(key string) (item *gomemcache.Item, err error) {
 	span := c.startSpan("Get")
-	item, err = c.Client.Get(key)
+	item, err = c.Client.Get(c.context, key)
 	span.Finish(tracer.WithError(err))
 	return item, err
 }
 
 // GetMulti invokes and traces Client.GetMulti.
-func (c *Client) GetMulti(keys []string) (map[string]*memcache.Item, error) {
+func (c *Client) GetMulti(keys []string) (map[string]*gomemcache.Item, error) {
 	span := c.startSpan("GetMulti")
-	items, err := c.Client.GetMulti(keys)
+	items, err := c.Client.GetMulti(c.context, keys)
 	span.Finish(tracer.WithError(err))
 	return items, err
 }
@@ -143,23 +137,23 @@ func (c *Client) GetMulti(keys []string) (map[string]*memcache.Item, error) {
 // Increment invokes and traces Client.Increment.
 func (c *Client) Increment(key string, delta uint64) (newValue uint64, err error) {
 	span := c.startSpan("Increment")
-	newValue, err = c.Client.Increment(key, delta)
+	newValue, err = c.Client.Increment(c.context, key, delta)
 	span.Finish(tracer.WithError(err))
 	return newValue, err
 }
 
 // Replace invokes and traces Client.Replace.
-func (c *Client) Replace(item *memcache.Item) error {
+func (c *Client) Replace(item *gomemcache.Item) error {
 	span := c.startSpan("Replace")
-	err := c.Client.Replace(item)
+	err := c.Client.Replace(c.context, item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // Set invokes and traces Client.Set.
-func (c *Client) Set(item *memcache.Item) error {
+func (c *Client) Set(item *gomemcache.Item) error {
 	span := c.startSpan("Set")
-	err := c.Client.Set(item)
+	err := c.Client.Set(c.context, item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
@@ -167,7 +161,7 @@ func (c *Client) Set(item *memcache.Item) error {
 // Touch invokes and traces Client.Touch.
 func (c *Client) Touch(key string, seconds int32) error {
 	span := c.startSpan("Touch")
-	err := c.Client.Touch(key, seconds)
+	err := c.Client.Touch(c.context, key, seconds)
 	span.Finish(tracer.WithError(err))
 	return err
 }

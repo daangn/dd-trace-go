@@ -4,7 +4,7 @@
 // Copyright 2016-2020 Datadog, Inc.
 
 // Package api provides functions to trace the google.golang.org/api package.
-package api // import "gopkg.in/DataDog/dd-trace-go.v1/contrib/google.golang.org/api"
+package api // import "github.com/daangn/dd-trace-go.v1/contrib/google.golang.org/api"
 
 //go:generate go run make_endpoints.go
 
@@ -13,10 +13,10 @@ import (
 	"net/http"
 
 	"golang.org/x/oauth2/google"
-	"gopkg.in/DataDog/dd-trace-go.v1/contrib/google.golang.org/api/internal"
-	httptrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/net/http"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
+	"github.com/daangn/dd-trace-go.v1/contrib/google.golang.org/api/internal"
+	httptrace "github.com/daangn/dd-trace-go.v1/contrib/net/http"
+	"github.com/daangn/dd-trace-go.v1/ddtrace"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
 )
 
 // apiEndpoints are all of the defined endpoints for the Google API; it is populated

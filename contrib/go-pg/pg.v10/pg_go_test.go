@@ -9,9 +9,9 @@ import (
 	"context"
 	"testing"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/mocktracer"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
 
 	"github.com/go-pg/pg/v10"
 	"github.com/stretchr/testify/assert"

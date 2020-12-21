@@ -24,7 +24,7 @@ import (
 	"math"
 	"reflect"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/contrib/database/sql/internal"
+	"github.com/daangn/dd-trace-go.v1/contrib/database/sql/internal"
 )
 
 // registeredDrivers holds a registry of all drivers registered via the sqltrace package.
