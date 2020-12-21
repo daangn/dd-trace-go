@@ -3,7 +3,7 @@
 // This product includes software developed at Datadog (https://www.datadoghq.com/).
 // Copyright 2016-2020 Datadog, Inc.
 
-//go:generate protoc -I . fixtures_test.proto --go_out=plugins=grpc:.
+//go:generate protoc -I . fixtures_test.proto --go_out=. --go-grpc_out=.
 
 // Package grpc provides functions to trace the google.golang.org/grpc package v1.2.
 package grpc // import "github.com/daangn/dd-trace-go.v1/contrib/google.golang.org/grpc.v12"
@@ -12,16 +12,17 @@ import (
 	"math"
 	"net"
 
+	context "golang.org/x/net/context"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/metadata"
+	"google.golang.org/grpc/peer"
+	"google.golang.org/grpc/status"
+
 	"github.com/daangn/dd-trace-go.v1/contrib/google.golang.org/internal/grpcutil"
 	"github.com/daangn/dd-trace-go.v1/ddtrace"
 	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
 	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
 	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
-
-	context "golang.org/x/net/context"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/metadata"
-	"google.golang.org/grpc/peer"
 )
 
 // UnaryServerInterceptor will trace requests to the given grpc server.
@@ -56,14 +57,14 @@ func startSpanFromContext(ctx context.Context, method, service string, rate floa
 	if !math.IsNaN(rate) {
 		opts = append(opts, tracer.Tag(ext.EventSampleRate, rate))
 	}
-	md, _ := metadata.FromContext(ctx) // nil is ok
+	md, _ := metadata.FromIncomingContext(ctx) // nil is ok
 	if sctx, err := tracer.Extract(grpcutil.MDCarrier(md)); err == nil {
 		opts = append(opts, tracer.ChildOf(sctx))
 	}
 	return tracer.StartSpanFromContext(ctx, "grpc.server", opts...)
 }
 
-// UnaryClientInterceptor will add tracing to a gprc client.
+// UnaryClientInterceptor will add tracing to a grpc client.
 func UnaryClientInterceptor(opts ...InterceptorOption) grpc.UnaryClientInterceptor {
 	cfg := new(interceptorConfig)
 	defaults(cfg)
@@ -86,12 +87,12 @@ func UnaryClientInterceptor(opts ...InterceptorOption) grpc.UnaryClientIntercept
 			spanopts = append(spanopts, tracer.Tag(ext.EventSampleRate, cfg.analyticsRate))
 		}
 		span, ctx = tracer.StartSpanFromContext(ctx, "grpc.client", spanopts...)
-		md, ok := metadata.FromContext(ctx)
+		md, ok := metadata.FromIncomingContext(ctx)
 		if !ok {
 			md = metadata.MD{}
 		}
 		_ = tracer.Inject(span.Context(), grpcutil.MDCarrier(md))
-		ctx = metadata.NewContext(ctx, md)
+		ctx = metadata.NewOutgoingContext(ctx, md)
 		opts = append(opts, grpc.Peer(&p))
 		err := invoker(ctx, method, req, reply, cc, opts...)
 		if p.Addr != nil {
@@ -104,7 +105,7 @@ func UnaryClientInterceptor(opts ...InterceptorOption) grpc.UnaryClientIntercept
 				span.SetTag(ext.TargetPort, port)
 			}
 		}
-		span.SetTag(tagCode, grpc.Code(err).String())
+		span.SetTag(tagCode, status.Code(err).String())
 		span.Finish(tracer.WithError(err))
 		return err
 	}

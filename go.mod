@@ -9,6 +9,7 @@ require (
 	github.com/aws/aws-sdk-go v1.36.12
 	github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
 	github.com/confluentinc/confluent-kafka-go v1.5.2 // indirect
+	github.com/daangn/gomemcache v0.0.0-20201217084817-c9e1da260fe0
 	github.com/daangn/x v0.0.1
 	github.com/emicklei/go-restful v2.15.0+incompatible
 	github.com/garyburd/redigo v1.6.2
@@ -44,6 +45,7 @@ require (
 	github.com/tidwall/buntdb v1.1.5
 	github.com/tinylib/msgp v1.1.5
 	github.com/twitchtv/twirp v7.1.0+incompatible
+	github.com/yosida95/uritemplate v2.0.0+incompatible // indirect
 	github.com/zenazn/goji v1.0.1
 	go.mongodb.org/mongo-driver v1.4.4
 	golang.org/x/net v0.0.0-20201216054612-986b41b23924
@@ -53,6 +55,7 @@ require (
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
 	google.golang.org/api v0.36.0
 	google.golang.org/grpc v1.34.0
+	google.golang.org/protobuf v1.25.0
 	gopkg.in/confluentinc/confluent-kafka-go.v1 v1.5.2
 	gopkg.in/jinzhu/gorm.v1 v1.9.2
 	gopkg.in/olivere/elastic.v3 v3.0.75
