@@ -11,8 +11,8 @@ import (
 	"net/http"
 
 	"github.com/emicklei/go-restful"
-	restfultrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/emicklei/go-restful"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	restfultrace "github.com/daangn/dd-trace-go.v1/contrib/emicklei/go-restful"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 // To start tracing requests, add the trace filter to your go-restful router.

@@ -6,7 +6,7 @@
 package mocktracer_test
 
 import (
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/mocktracer"
+	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
 )
 
 func Example() {

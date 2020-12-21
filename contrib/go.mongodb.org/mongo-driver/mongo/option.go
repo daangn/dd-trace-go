@@ -8,7 +8,7 @@ package mongo
 import (
 	"math"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/internal"
+	"github.com/daangn/dd-trace-go.v1/internal"
 )
 
 type config struct {

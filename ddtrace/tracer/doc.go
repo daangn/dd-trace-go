@@ -74,5 +74,5 @@
 //
 // Some libraries and frameworks are supported out-of-the-box by using one
 // of our integrations. You can see a list of supported integrations here:
-// https://godoc.org/gopkg.in/DataDog/dd-trace-go.v1/contrib
-package tracer // import "gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+// https://godoc.org/github.com/daangn/dd-trace-go.v1/contrib
+package tracer // import "github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
