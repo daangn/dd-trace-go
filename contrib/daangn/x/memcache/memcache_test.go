@@ -14,8 +14,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bradfitz/gomemcache/memcache"
+	gomemcache "github.com/daangn/gomemcache/memcache"
+	"github.com/daangn/x/memcache"
 	"github.com/stretchr/testify/assert"
+
 	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
 	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
 	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
@@ -38,7 +40,10 @@ func TestMemcacheIntegration(t *testing.T) {
 }
 
 func testMemcache(t *testing.T, addr string) {
-	client := WrapClient(memcache.New(addr), WithServiceName("test-memcache"))
+	rawClient, _ := memcache.New(context.TODO(), &memcache.Options{
+		CfgEp: addr,
+	})
+	client := WrapClient(rawClient, WithServiceName("test-memcache"))
 	defer client.DeleteAll()
 
 	validateMemcacheSpan := func(t *testing.T, span mocktracer.Span, resourceName string) {
@@ -55,7 +60,7 @@ func testMemcache(t *testing.T, addr string) {
 		defer mt.Stop()
 
 		err := client.
-			Add(&memcache.Item{
+			Add(&gomemcache.Item{
 				Key:   "key1",
 				Value: []byte("value1"),
 			})
@@ -75,7 +80,7 @@ func testMemcache(t *testing.T, addr string) {
 
 		err := client.
 			WithContext(ctx).
-			Add(&memcache.Item{
+			Add(&gomemcache.Item{
 				Key:   "key2",
 				Value: []byte("value2"),
 			})
@@ -113,9 +118,12 @@ func TestAnalyticsSettings(t *testing.T) {
 	defer li.Close()
 	addr := li.Addr().String()
 	assertRate := func(t *testing.T, mt mocktracer.Tracer, rate interface{}, opts ...ClientOption) {
-		client := WrapClient(memcache.New(addr), opts...)
+		rawClient, _ := memcache.New(context.TODO(), &memcache.Options{
+			CfgEp: addr,
+		})
+		client := WrapClient(rawClient, opts...)
 		defer client.DeleteAll()
-		err := client.Add(&memcache.Item{Key: "key1", Value: []byte("value1")})
+		err := client.Add(&gomemcache.Item{Key: "key1", Value: []byte("value1")})
 		assert.NoError(t, err)
 
 		spans := mt.FinishedSpans()
