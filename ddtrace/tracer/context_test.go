@@ -10,7 +10,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/internal"
 )
 
 func TestContextWithSpan(t *testing.T) {

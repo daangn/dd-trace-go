@@ -1,4 +1,4 @@
-[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/daangn/dd-trace-go.v1/contrib)
+[![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/gopkg.in/daangn/dd-trace-go.v1/contrib)
 
 The purpose of these packages is to provide tracing on top of commonly used packages from the standard library as well as the 
 community in a "plug-and-play" manner. This means that by simply importing the appropriate path, functions are exposed having
@@ -20,4 +20,4 @@ First, find the library which you'd like to integrate with. The naming conventio
 * The package itself should retain its un-versioned name. For example, the integration under `user/repo.v2` stays as `package repo`, and does not become `package repo.v2`
 
 Each integration comes with thorough documentation and usage examples. A good overview can be seen on our 
-[godoc](https://godoc.org/github.com/daangn/dd-trace-go.v1/contrib) page.
+[godoc](https://godoc.org/gopkg.in/daangn/dd-trace-go.v1/contrib) page.

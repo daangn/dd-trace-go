@@ -14,10 +14,10 @@ import (
 	"github.com/syndtr/goleveldb/leveldb/opt"
 	"github.com/syndtr/goleveldb/leveldb/storage"
 	"github.com/syndtr/goleveldb/leveldb/util"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 )
 
 func TestDB(t *testing.T) {

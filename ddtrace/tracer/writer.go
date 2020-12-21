@@ -15,7 +15,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daangn/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 )
 
 type traceWriter interface {

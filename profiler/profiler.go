@@ -13,8 +13,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daangn/dd-trace-go.v1/internal"
-	"github.com/daangn/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 )
 
 // outChannelSize specifies the size of the profile output channel.

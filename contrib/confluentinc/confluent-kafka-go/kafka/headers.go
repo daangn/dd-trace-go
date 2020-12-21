@@ -6,7 +6,7 @@
 package kafka
 
 import (
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 )

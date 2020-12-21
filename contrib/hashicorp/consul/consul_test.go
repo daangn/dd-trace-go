@@ -11,8 +11,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
 
 	consul "github.com/hashicorp/consul/api"
 	"github.com/stretchr/testify/assert"

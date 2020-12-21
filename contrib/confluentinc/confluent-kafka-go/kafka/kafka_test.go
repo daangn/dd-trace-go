@@ -9,8 +9,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
 
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
 

@@ -14,9 +14,9 @@ import (
 	graphql "github.com/graph-gophers/graphql-go"
 	"github.com/graph-gophers/graphql-go/relay"
 	"github.com/stretchr/testify/assert"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 )
 
 type testResolver struct{}

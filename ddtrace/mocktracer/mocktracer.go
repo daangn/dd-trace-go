@@ -17,9 +17,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/internal"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 var _ ddtrace.Tracer = (*mocktracer)(nil)

@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/internal"
-	"github.com/daangn/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 )
 
 var _ ddtrace.Tracer = (*tracer)(nil)

@@ -6,7 +6,7 @@
 //go:generate protoc -I . fixtures_test.proto --go_out=. --go-grpc_out=.
 
 // Package grpc provides functions to trace the google.golang.org/grpc package v1.2.
-package grpc // import "github.com/daangn/dd-trace-go.v1/contrib/google.golang.org/grpc.v12"
+package grpc // import "gopkg.in/daangn/dd-trace-go.v1/contrib/google.golang.org/grpc.v12"
 
 import (
 	"math"
@@ -18,11 +18,11 @@ import (
 	"google.golang.org/grpc/peer"
 	"google.golang.org/grpc/status"
 
-	"github.com/daangn/dd-trace-go.v1/contrib/google.golang.org/internal/grpcutil"
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/contrib/google.golang.org/internal/grpcutil"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 )
 
 // UnaryServerInterceptor will trace requests to the given grpc server.

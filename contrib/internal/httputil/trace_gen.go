@@ -3,7 +3,7 @@
 package httputil
 
 import (
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
 	"net/http"
 )
 

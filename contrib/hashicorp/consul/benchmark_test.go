@@ -8,7 +8,7 @@ package consul
 import (
 	"testing"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 
 	consul "github.com/hashicorp/consul/api"
 )

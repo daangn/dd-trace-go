@@ -8,7 +8,7 @@ package grpc
 import (
 	"math"
 
-	"github.com/daangn/dd-trace-go.v1/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/internal"
 )
 
 type interceptorConfig struct {

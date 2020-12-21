@@ -10,10 +10,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	httptrace "github.com/daangn/dd-trace-go.v1/contrib/net/http"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
+	httptrace "gopkg.in/daangn/dd-trace-go.v1/contrib/net/http"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 
 	"github.com/stretchr/testify/assert"
 	meta_v1 "k8s.io/apimachinery/pkg/apis/meta/v1"

@@ -9,7 +9,7 @@ import (
 	"fmt"
 
 	cloudresourcemanager "google.golang.org/api/cloudresourcemanager/v1"
-	apitrace "github.com/daangn/dd-trace-go.v1/contrib/google.golang.org/api"
+	apitrace "gopkg.in/daangn/dd-trace-go.v1/contrib/google.golang.org/api"
 )
 
 func Example() {

@@ -9,7 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
 )
 
 // A basic example demonstrating how to start the tracer, as well as how

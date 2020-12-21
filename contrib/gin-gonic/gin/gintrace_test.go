@@ -12,10 +12,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"

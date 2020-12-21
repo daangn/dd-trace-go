@@ -19,11 +19,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/internal"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
-	"github.com/daangn/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/tinylib/msgp/msgp"

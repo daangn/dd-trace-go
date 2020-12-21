@@ -11,7 +11,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/lib/pq"
