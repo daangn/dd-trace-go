@@ -3,12 +3,12 @@
 // This product includes software developed at Datadog (https://www.datadoghq.com/).
 // Copyright 2016 Datadog, Inc.
 
-package internal // import "github.com/daangn/dd-trace-go.v1/ddtrace/internal"
+package internal // import "gopkg.in/daangn/dd-trace-go.v1/ddtrace/internal"
 
 import (
 	"sync"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
 )
 
 var (

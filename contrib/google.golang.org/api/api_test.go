@@ -15,9 +15,9 @@ import (
 	books "google.golang.org/api/books/v1"
 	civicinfo "google.golang.org/api/civicinfo/v2"
 	urlshortener "google.golang.org/api/urlshortener/v1"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/mocktracer"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 )
 
 type roundTripperFunc func(*http.Request) (*http.Response, error)

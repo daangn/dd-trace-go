@@ -11,8 +11,8 @@ import (
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
 
-	sqltrace "github.com/daangn/dd-trace-go.v1/contrib/database/sql"
-	sqlxtrace "github.com/daangn/dd-trace-go.v1/contrib/jmoiron/sqlx"
+	sqltrace "gopkg.in/daangn/dd-trace-go.v1/contrib/database/sql"
+	sqlxtrace "gopkg.in/daangn/dd-trace-go.v1/contrib/jmoiron/sqlx"
 )
 
 func ExampleOpen() {

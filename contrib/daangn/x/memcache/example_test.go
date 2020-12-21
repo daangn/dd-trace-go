@@ -11,8 +11,8 @@ import (
 	gomemcache "github.com/daangn/gomemcache/memcache"
 	"github.com/daangn/x/memcache"
 
-	memcachetrace "github.com/daangn/dd-trace-go.v1/contrib/daangn/x/memcache"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	memcachetrace "gopkg.in/daangn/dd-trace-go.v1/contrib/daangn/x/memcache"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 func Example() {

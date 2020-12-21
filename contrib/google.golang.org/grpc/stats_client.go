@@ -11,8 +11,8 @@ import (
 	context "golang.org/x/net/context"
 	"google.golang.org/grpc/stats"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 // NewClientStatsHandler returns a gRPC client stats.Handler to trace RPC calls.

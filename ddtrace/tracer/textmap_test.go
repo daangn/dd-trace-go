@@ -12,8 +12,8 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/internal"
 
 	"github.com/stretchr/testify/assert"
 )

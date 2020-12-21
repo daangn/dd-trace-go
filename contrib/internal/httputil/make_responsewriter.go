@@ -16,7 +16,7 @@ import (
 	"os"
 	"text/template"
 
-	"github.com/daangn/dd-trace-go.v1/contrib/internal/lists"
+	"gopkg.in/daangn/dd-trace-go.v1/contrib/internal/lists"
 )
 
 func main() {
@@ -37,7 +37,7 @@ package httputil
 
 import (
 	"net/http"
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
 )
 
 // wrapResponseWriter wraps an underlying http.ResponseWriter so that it can

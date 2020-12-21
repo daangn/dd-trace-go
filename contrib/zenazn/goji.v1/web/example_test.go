@@ -11,7 +11,7 @@ import (
 
 	"github.com/zenazn/goji"
 	"github.com/zenazn/goji/web"
-	webtrace "github.com/daangn/dd-trace-go.v1/contrib/zenazn/goji.v1/web"
+	webtrace "gopkg.in/daangn/dd-trace-go.v1/contrib/zenazn/goji.v1/web"
 )
 
 func ExampleMiddleware() {

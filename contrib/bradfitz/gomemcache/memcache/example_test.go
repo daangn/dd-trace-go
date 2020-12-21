@@ -9,8 +9,8 @@ import (
 	"context"
 
 	"github.com/bradfitz/gomemcache/memcache"
-	memcachetrace "github.com/daangn/dd-trace-go.v1/contrib/bradfitz/gomemcache/memcache"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	memcachetrace "gopkg.in/daangn/dd-trace-go.v1/contrib/bradfitz/gomemcache/memcache"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 func Example() {

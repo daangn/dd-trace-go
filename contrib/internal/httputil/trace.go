@@ -3,7 +3,7 @@
 // This product includes software developed at Datadog (https://www.datadoghq.com/).
 // Copyright 2016 Datadog, Inc.
 
-package httputil // import "github.com/daangn/dd-trace-go.v1/contrib/internal/httputil"
+package httputil // import "gopkg.in/daangn/dd-trace-go.v1/contrib/internal/httputil"
 
 //go:generate sh -c "go run make_responsewriter.go | gofmt > trace_gen.go"
 
@@ -12,9 +12,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 // TraceAndServe will apply tracing to the given http.Handler using the passed tracer under the given service and resource.

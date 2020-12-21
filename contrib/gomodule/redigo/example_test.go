@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/gomodule/redigo/redis"
-	redigotrace "github.com/daangn/dd-trace-go.v1/contrib/gomodule/redigo"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	redigotrace "gopkg.in/daangn/dd-trace-go.v1/contrib/gomodule/redigo"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 // To start tracing Redis commands, use the TracedDial function to create a connection,

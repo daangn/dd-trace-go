@@ -8,8 +8,8 @@ package opentracer_test
 import (
 	opentracing "github.com/opentracing/opentracing-go"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace/opentracer"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/opentracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 func Example() {

@@ -6,7 +6,7 @@
 package sarama
 
 import (
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 
 	"github.com/Shopify/sarama"
 )

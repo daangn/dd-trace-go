@@ -1,4 +1,4 @@
-module github.com/daangn/dd-trace-go.v1
+module gopkg.in/daangn/dd-trace-go.v1
 
 go 1.15
 

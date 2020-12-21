@@ -8,7 +8,7 @@ package mux_test
 import (
 	"net/http"
 
-	muxtrace "github.com/daangn/dd-trace-go.v1/contrib/gorilla/mux"
+	muxtrace "gopkg.in/daangn/dd-trace-go.v1/contrib/gorilla/mux"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {

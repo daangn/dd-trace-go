@@ -15,7 +15,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/daangn/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 )
 
 // maxRetries specifies the maximum number of retries to have when an error occurs.

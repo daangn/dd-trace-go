@@ -16,8 +16,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/daangn/dd-trace-go.v1/internal"
-	"github.com/daangn/dd-trace-go.v1/internal/version"
+	"gopkg.in/daangn/dd-trace-go.v1/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/version"
 )
 
 const (

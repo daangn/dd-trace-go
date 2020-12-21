@@ -12,9 +12,9 @@ import (
 
 	"github.com/julienschmidt/httprouter"
 
-	httptrace "github.com/daangn/dd-trace-go.v1/contrib/julienschmidt/httprouter"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
+	httptrace "gopkg.in/daangn/dd-trace-go.v1/contrib/julienschmidt/httprouter"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {

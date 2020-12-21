@@ -14,9 +14,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
-	"github.com/daangn/dd-trace-go.v1/internal/log"
-	"github.com/daangn/dd-trace-go.v1/internal/version"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/version"
 )
 
 const (

@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"net/http"
 
-	httptrace "github.com/daangn/dd-trace-go.v1/contrib/net/http"
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
-	"github.com/daangn/dd-trace-go.v1/ddtrace/ext"
+	httptrace "gopkg.in/daangn/dd-trace-go.v1/contrib/net/http"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
 
 	"github.com/hashicorp/vault/api"
 	"github.com/hashicorp/vault/sdk/helper/consts"

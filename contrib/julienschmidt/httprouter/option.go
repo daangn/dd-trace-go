@@ -8,9 +8,9 @@ package httprouter
 import (
 	"math"
 
-	"github.com/daangn/dd-trace-go.v1/ddtrace"
-	"github.com/daangn/dd-trace-go.v1/internal"
-	"github.com/daangn/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 )
 
 type routerConfig struct {
