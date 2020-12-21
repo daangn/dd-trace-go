@@ -8,8 +8,10 @@ package memcache_test
 import (
 	"context"
 
-	"github.com/bradfitz/gomemcache/memcache"
-	memcachetrace "github.com/daangn/dd-trace-go.v1/contrib/bradfitz/gomemcache/memcache"
+	gomemcache "github.com/daangn/gomemcache/memcache"
+	"github.com/daangn/x/memcache"
+
+	memcachetrace "github.com/daangn/dd-trace-go.v1/contrib/daangn/x/memcache"
 	"github.com/daangn/dd-trace-go.v1/ddtrace/tracer"
 )
 
@@ -20,8 +22,10 @@ func Example() {
 	)
 	defer span.Finish()
 
-	mc := memcachetrace.WrapClient(memcache.New("127.0.0.1:11211"))
+	client, _ := memcache.New(context.TODO(), &memcache.Options{
+		CfgEp: "127.0.0.1:11211",
+	})
+	mc := memcachetrace.WrapClient(client)
 	// you can use WithContext to set the parent span
-	mc.WithContext(ctx).Set(&memcache.Item{Key: "my key", Value: []byte("my value")})
-
+	mc.WithContext(ctx).Set(&gomemcache.Item{Key: "my key", Value: []byte("my value")})
 }

@@ -3,13 +3,13 @@
 // This product includes software developed at Datadog (https://www.datadoghq.com/).
 // Copyright 2016-2020 Datadog, Inc.
 
-// Package memcache provides functions to trace the bradfitz/gomemcache package (https://github.com/bradfitz/gomemcache).
+// Package memcache provides functions to trace the daangn/x/memcache package (https://github.com/daangn/x/memcache).
 //
 // `WrapClient` will wrap a memcache `Client` and return a new struct with all
 // the same methods, so should be seamless for existing applications. It also
 // has an additional `WithContext` method which can be used to connect a span
 // to an existing trace.
-package memcache // import "github.com/daangn/dd-trace-go.v1/contrib/bradfitz/gomemcache/memcache"
+package memcache // import "github.com/daangn/dd-trace-go.v1/contrib/daangn/x/memcache"
 
 import (
 	"context"
