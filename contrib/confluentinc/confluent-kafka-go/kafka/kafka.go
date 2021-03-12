@@ -1,7 +1,7 @@
 // Unless explicitly stated otherwise all files in this repository are licensed
 // under the Apache License Version 2.0.
 // This product includes software developed at Datadog (https://www.datadoghq.com/).
-// Copyright 2016-2020 Datadog, Inc.
+// Copyright 2016 Datadog, Inc.
 
 // Package kafka provides functions to trace the confluentinc/confluent-kafka-go package (https://github.com/confluentinc/confluent-kafka-go).
 package kafka // import "gopkg.in/daangn/dd-trace-go.v1/contrib/confluentinc/confluent-kafka-go/kafka"
@@ -12,8 +12,9 @@ import (
 	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
 	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
 	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 
-	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
+	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
 // NewConsumer calls kafka.NewConsumer and wraps the resulting Consumer.
@@ -48,6 +49,7 @@ func WrapConsumer(c *kafka.Consumer, opts ...Option) *Consumer {
 		Consumer: c,
 		cfg:      newConfig(opts...),
 	}
+	log.Debug("contrib/confluentinc/confluent-kafka-go/kafka: Wrapping Consumer: %#v", wrapped.cfg)
 	wrapped.events = wrapped.traceEventsChannel(c.Events())
 	return wrapped
 }
@@ -156,6 +158,7 @@ func WrapProducer(p *kafka.Producer, opts ...Option) *Producer {
 		Producer: p,
 		cfg:      newConfig(opts...),
 	}
+	log.Debug("contrib/confluentinc/confluent-kafka-go/kafka: Wrapping Producer: %#v", wrapped.cfg)
 	wrapped.produceChannel = wrapped.traceProduceChannel(p.ProduceChannel())
 	return wrapped
 }

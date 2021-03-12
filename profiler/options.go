@@ -1,7 +1,7 @@
 // Unless explicitly stated otherwise all files in this repository are licensed
 // under the Apache License Version 2.0.
 // This product includes software developed at Datadog (https://www.datadoghq.com/).
-// Copyright 2016-2020 Datadog, Inc.
+// Copyright 2016 Datadog, Inc.
 
 package profiler
 
@@ -27,12 +27,15 @@ import (
 
 const (
 	// DefaultMutexFraction specifies the mutex profile fraction to be used with the mutex profiler.
-	// For more information or for changing this value, check runtime.SetMutexProfileFraction.
+	// For more information or for changing this value, check MutexProfileFraction
 	DefaultMutexFraction = 10
 
-	// DefaultBlockRate specifies the default block profiling rate used by the block profiler.
-	// For more information or for changing this value, check runtime.SetBlockProfileRate.
-	DefaultBlockRate = 100
+	// DefaultBlockRate specifies the default block profiling rate used by the
+	// block profiler. For more information or for changing this value, check
+	// BlockProfileRate. The default rate is chosen to prevent high overhead
+	// based on the research from:
+	// https://github.com/felixge/go-profiler-notes/blob/main/block.md#benchmarks
+	DefaultBlockRate = 10000
 
 	// DefaultPeriod specifies the default period at which profiles will be collected.
 	DefaultPeriod = time.Minute
@@ -68,7 +71,7 @@ var defaultClient = &http.Client{
 	Timeout: defaultHTTPTimeout,
 }
 
-var defaultProfileTypes = []ProfileType{CPUProfile, HeapProfile}
+var defaultProfileTypes = []ProfileType{MetricsProfile, CPUProfile, HeapProfile}
 
 type config struct {
 	apiKey string
@@ -156,7 +159,12 @@ func defaultConfig() *config {
 		WithVersion(v)(&c)
 	}
 	if v := os.Getenv("DD_TAGS"); v != "" {
-		for _, tag := range strings.Split(v, ",") {
+		sep := " "
+		if strings.Index(v, ",") > -1 {
+			// falling back to comma as separator
+			sep = ","
+		}
+		for _, tag := range strings.Split(v, sep) {
 			tag = strings.TrimSpace(tag)
 			if tag == "" {
 				continue
@@ -189,7 +197,9 @@ func WithAgentAddr(hostport string) Option {
 	}
 }
 
-// WithAPIKey specifies the API key to use when connecting to the Datadog API directly, skipping the agent.
+// WithAPIKey is deprecated and might be removed in future versions of this
+// package. It allows to skip the agent and talk to the Datadog API directly
+// using the provided API key.
 func WithAPIKey(key string) Option {
 	return func(cfg *config) {
 		cfg.apiKey = key
@@ -217,6 +227,32 @@ func CPUDuration(d time.Duration) Option {
 	}
 }
 
+// MutexProfileFraction turns on mutex profiles with rate indicating the fraction
+// of mutex contention events reported in the mutex profile.
+// On average, 1/rate events are reported.
+// Setting an aggressive rate can hurt performance.
+// For more information on this value, check runtime.SetMutexProfileFraction.
+func MutexProfileFraction(rate int) Option {
+	return func(cfg *config) {
+		cfg.addProfileType(MutexProfile)
+		cfg.mutexFraction = rate
+	}
+}
+
+// BlockProfileRate turns on block profiles with the given rate.
+// The profiler samples an average of one blocking event per rate nanoseconds spent blocked.
+// For example, set rate to 1000000000 (aka int(time.Second.Nanoseconds())) to
+// record one sample per second a goroutine is blocked.
+// A rate of 1 catches every event.
+// Setting an aggressive rate can hurt performance.
+// For more information on this value, check runtime.SetBlockProfileRate.
+func BlockProfileRate(rate int) Option {
+	return func(cfg *config) {
+		cfg.addProfileType(BlockProfile)
+		cfg.blockRate = rate
+	}
+}
+
 // WithProfileTypes specifies the profile types to be collected by the profiler.
 func WithProfileTypes(types ...ProfileType) Option {
 	return func(cfg *config) {
@@ -224,6 +260,7 @@ func WithProfileTypes(types ...ProfileType) Option {
 		for k := range cfg.types {
 			delete(cfg.types, k)
 		}
+		cfg.addProfileType(MetricsProfile) // always report metrics
 		for _, t := range types {
 			cfg.addProfileType(t)
 		}

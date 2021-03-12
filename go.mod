@@ -4,11 +4,12 @@ go 1.15
 
 require (
 	cloud.google.com/go/pubsub v1.9.1
-	github.com/DataDog/datadog-go v4.2.0+incompatible
+	github.com/DataDog/datadog-go v4.4.0+incompatible
+	github.com/Microsoft/go-winio v0.4.16 // indirect
 	github.com/Shopify/sarama v1.27.2
 	github.com/aws/aws-sdk-go v1.36.12
 	github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
-	github.com/confluentinc/confluent-kafka-go v1.5.2 // indirect
+	github.com/confluentinc/confluent-kafka-go v1.5.2
 	github.com/daangn/gomemcache v0.0.0-20201217084817-c9e1da260fe0
 	github.com/daangn/x v0.0.1
 	github.com/emicklei/go-restful v2.15.0+incompatible
@@ -21,9 +22,11 @@ require (
 	github.com/go-redis/redis/v8 v8.4.4
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/gocql/gocql v0.0.0-20201215165327-e49edf966d90
+	github.com/gofiber/fiber/v2 v2.5.0
 	github.com/gofrs/uuid v3.3.0+incompatible // indirect
 	github.com/golang/protobuf v1.4.3
 	github.com/gomodule/redigo v1.8.3
+	github.com/google/pprof v0.0.0-20201117184057-ae444373da19
 	github.com/google/uuid v1.1.2
 	github.com/gorilla/mux v1.8.0
 	github.com/graph-gophers/graphql-go v0.0.0-20201113091052-beb923fada29
@@ -31,6 +34,7 @@ require (
 	github.com/hashicorp/vault/api v1.0.4
 	github.com/hashicorp/vault/sdk v0.1.13
 	github.com/imdario/mergo v0.3.11 // indirect
+	github.com/jackc/pgx/v4 v4.10.1
 	github.com/jinzhu/gorm v1.9.16
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/julienschmidt/httprouter v1.3.0
@@ -55,11 +59,14 @@ require (
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
 	google.golang.org/api v0.36.0
 	google.golang.org/grpc v1.34.0
-	google.golang.org/protobuf v1.25.0
-	gopkg.in/confluentinc/confluent-kafka-go.v1 v1.5.2
+	google.golang.org/protobuf v1.25.0 // indirect
+	gopkg.in/confluentinc/confluent-kafka-go.v1 v1.5.2 // indirect
 	gopkg.in/jinzhu/gorm.v1 v1.9.2
 	gopkg.in/olivere/elastic.v3 v3.0.75
 	gopkg.in/olivere/elastic.v5 v5.0.86
+	gorm.io/driver/mysql v1.0.5
+	gorm.io/driver/postgres v1.0.8
+	gorm.io/gorm v1.21.3
 	k8s.io/api v0.20.1 // indirect
 	k8s.io/apimachinery v0.20.1
 	k8s.io/client-go v11.0.0+incompatible
