@@ -14,7 +14,7 @@ import (
 	"time"
 
 	pprofile "github.com/google/pprof/profile"
-	"gopkg.in/DataDog/dd-trace-go.v1/profiler/internal/stackparse"
+	"gopkg.in/daangn/dd-trace-go.v1/profiler/internal/stackparse"
 )
 
 // ProfileType represents a type of profile that the profiler is able to run.

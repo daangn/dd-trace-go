@@ -8,9 +8,9 @@ package fiber
 import (
 	"math"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/internal"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/globalconfig"
 )
 
 type config struct {

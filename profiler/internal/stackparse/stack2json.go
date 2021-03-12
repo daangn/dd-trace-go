@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"os"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/profiler/internal/stackparse"
+	"gopkg.in/daangn/dd-trace-go.v1/profiler/internal/stackparse"
 )
 
 // usage: go run stack2json.go < example.txt

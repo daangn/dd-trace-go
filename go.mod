@@ -9,7 +9,7 @@ require (
 	github.com/Shopify/sarama v1.27.2
 	github.com/aws/aws-sdk-go v1.36.12
 	github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
-	github.com/confluentinc/confluent-kafka-go v1.5.2 // indirect
+	github.com/confluentinc/confluent-kafka-go v1.5.2
 	github.com/daangn/gomemcache v0.0.0-20201217084817-c9e1da260fe0
 	github.com/daangn/x v0.0.1
 	github.com/emicklei/go-restful v2.15.0+incompatible
@@ -59,8 +59,8 @@ require (
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
 	google.golang.org/api v0.36.0
 	google.golang.org/grpc v1.34.0
-	google.golang.org/protobuf v1.25.0
-	gopkg.in/confluentinc/confluent-kafka-go.v1 v1.5.2
+	google.golang.org/protobuf v1.25.0 // indirect
+	gopkg.in/confluentinc/confluent-kafka-go.v1 v1.5.2 // indirect
 	gopkg.in/jinzhu/gorm.v1 v1.9.2
 	gopkg.in/olivere/elastic.v3 v3.0.75
 	gopkg.in/olivere/elastic.v5 v5.0.86

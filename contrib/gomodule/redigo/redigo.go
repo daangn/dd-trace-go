@@ -16,10 +16,10 @@ import (
 	"strconv"
 	"time"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 
 	redis "github.com/gomodule/redigo/redis"
 )

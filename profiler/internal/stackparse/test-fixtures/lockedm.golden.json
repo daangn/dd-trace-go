@@ -23,7 +23,7 @@
           "Line": 969
         },
         {
-          "Func": "gopkg.in/DataDog/dd-trace-go.v1/profiler/internal/stackparse.TestParse_Example",
+          "Func": "gopkg.in/daangn/dd-trace-go.v1/profiler/internal/stackparse.TestParse_Example",
           "File": "/Users/felix.geisendoerfer/go/src/github.com/DataDog/dd-trace-go/profiler/internal/stackparse/stackparse_test.go",
           "Line": 21
         },

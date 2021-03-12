@@ -8,10 +8,10 @@ package pg
 import (
 	"context"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/log"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/daangn/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/daangn/dd-trace-go.v1/internal/log"
 
 	"github.com/go-pg/pg/v10"
 )
