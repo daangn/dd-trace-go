@@ -1,6 +1,10 @@
 [![CircleCI](https://circleci.com/gh/DataDog/dd-trace-go/tree/v1.svg?style=svg)](https://circleci.com/gh/DataDog/dd-trace-go/tree/v1)
 [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/gopkg.in/daangn/dd-trace-go.v1/ddtrace)
 
+### DEPRECATED. THIS FORK IS NOT MAINTAINED.
+
+Instead use [daangn/x/monitor/xdatadog](https://github.com/daangn/x/tree/main/monitor/xdatadog/contrib/daangn/x/memcache) for extended tracers.
+
 ### Installing
 
 ```bash
